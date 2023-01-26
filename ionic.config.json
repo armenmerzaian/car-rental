@@ -1,0 +1,7 @@
+{
+  "name": "A3Armen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

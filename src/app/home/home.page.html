@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Create Your Reservation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Car Rental App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h1>Armen's Car Rental Form</h1>
+
+    <form #reservation="ngForm">
+      <div id="lbl_error" *ngIf="error">
+        <label>Please fix these issues with your form: </label>
+        <ul>
+          <li *ngIf="selectedCar == 'default'">Car: Please select a car type.</li>
+          <li *ngIf="resoHours.invalid">Hours: Please select hours from 1-96.</li>
+          <li *ngIf="!validateBackDate() && reserveDate != '' && validateDate()">Date: Backdating is not allowed.</li>
+          <li *ngIf="!validateDate()">Date: Please enter a valid date.</li>
+        </ul>
+      </div>
+
+      <label>What type of car?</label>
+      <select [(ngModel)]="selectedCar" name="selectedCar" >
+        <option value="default" disabled>Select a vehicle type</option>
+        <option *ngFor="let car of carTypes" [value]="car.type">{{car.type}}</option>
+      </select>
+
+      <label>Enter the reservation date</label>
+      <input id="txt_reserveDate" type="text" [(ngModel)]="reserveDate" name="resoDate" required (change)="validateDate">
+      
+      <label>Enter the number of hours:</label>
+      <input id="num_hrs" type="number" step="1" [(ngModel)]="reserveHours" name="resoHours" #resoHours="ngModel" min='1' max='96'>
+      
+      <div>
+        <label>Do you need a car seat?</label>
+        <input type="checkbox" [(ngModel)]="carSeat" name="carSeat">
+      </div>
+      
+      <div id="form-buttons">
+        <button (click)="onSubmit()">RESERVE</button>
+        <button (click)="resetForm()">RESET</button>
+      </div>
+    
+    
+    </form>
+  
+  </div>
+</ion-content>

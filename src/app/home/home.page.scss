@@ -1,0 +1,60 @@
+#container {
+ margin: 0 5%;
+}
+
+#container form{
+  display: flex;
+  flex-direction: column;
+}
+
+form select{
+  width: 75%;
+  margin: 8px 0;
+  background-color: white;
+  border-color: lightgray;
+}
+
+#txt_reserveDate{
+  width: 150px;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+#num_hrs{
+  width: 100px;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+form div{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+form button{
+  margin-top: 1rem;
+  padding: 18px 30px;
+  font-size: medium;
+}
+
+form button:first-of-type{
+  background-color: rgb(77,94,192);
+  color: white;
+}
+
+form button:last-of-type {
+  color: black;
+}
+
+#lbl_error{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  width: 100%;
+  color: darkred;
+  background-color: rgba(255, 192, 203, 0.584);
+  font-weight: 300;
+}
+

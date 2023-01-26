@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons default-href="home" slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Your Receipt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <h1>Reservation Confirmed!</h1>
+    <ul>
+      <li>
+        <span> Reservation Number: </span>
+        <span> RES-{{reservation.reservationID}} </span>
+      </li>
+      <li>
+        <span> Car Type: </span>
+        <span> {{reservation.carType}} </span>
+      </li>
+      <li>
+        <span> Length of Rental: </span>
+        <span> {{reservation.reservationHours}} {{reservation.reservationHours > 1 ? "hours" : "hour"}} </span>
+      </li>
+      <li>
+        <span> Pickup Date: </span>
+        <span> {{reservation.reservationDate}} </span>
+      </li>
+      <li>
+        <span> Car Seat Required?: </span>
+        <span> {{reservation.carSeat ? "Yes" : "No"}} </span>
+      </li>
+      <li>
+        <span> Subtotal: </span>
+        <span> ${{subtotal.toFixed(2)}} </span>
+      </li>
+      <li>
+        <span> Sales Tax: </span>
+        <span> ${{(subtotal * 0.13).toFixed(2)}} </span>
+      </li>
+      <li>
+        <span> Total Tax: </span>
+        <span> ${{(subtotal * 1.13).toFixed(2)}} </span>
+      </li>
+    </ul>
+  </div>
+</ion-content>
